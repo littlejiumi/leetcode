@@ -18,7 +18,7 @@ class Solution:
                 left += 1
             while left <= right and nums[right] % 2 == 0:
                 right -= 1
-            if left > right:
+            if left > right:  # 重要！
                 break
             nums[left], nums[right] = nums[right], nums[left]
         return nums
