@@ -9,7 +9,7 @@ class Solution {
             while(left <= right && nums[right] % 2 == 0){
                 right--;
             }
-            if(left > right) break;
+            if(left > right) break;  # Important! Do not forget~
             int tmp = nums[left];
             nums[left] = nums[right];
             nums[right] = tmp;
