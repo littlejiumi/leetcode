@@ -9,3 +9,7 @@ class Solution:
             if value > len(nums) / 2:
                 return key
         return 0
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        nums.sort()
+        return nums[len(nums) // 2]
