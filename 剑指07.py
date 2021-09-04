@@ -1,6 +1,6 @@
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
-        def recur(root, left, right):
+        def recur(root, left, right): #根节点在前序遍历的索引 root 、子树在中序遍历的左边界 left 、子树在中序遍历的右边界 right
             if left > right: return                               # 递归终止
             node = TreeNode(preorder[root])                       # 建立根节点
             i = dic[preorder[root]]                               # 划分根节点、左子树、右子树
