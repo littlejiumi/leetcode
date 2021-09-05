@@ -1,4 +1,4 @@
-class Solution:
+class Solution:   # 快速幂
     def myPow(self, x: float, n: int) -> float:
         if x == 0: return 0
         res = 1
