@@ -1,4 +1,4 @@
-class Solution:
+class Solution: #通过递归，判断所有子树的 正确性 （即其后序遍历是否满足二叉搜索树的定义）
     def verifyPostorder(self, postorder: List[int]) -> bool:
         def recur(i, j):
             if i >= j: return True
