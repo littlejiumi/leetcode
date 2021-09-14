@@ -2,9 +2,9 @@ class Solution {
     public boolean isMatch(String s, String p) {
         int m = s.length() + 1, n = p.length() + 1;
         boolean[][] dp = new boolean[m][n];
-        dp[0][0] = true;
+        dp[0][0] = true;  //初始化
         for(int j = 2; j < n; j += 2)
-            dp[0][j] = dp[0][j - 2] && p.charAt(j - 1) == '*';
+            dp[0][j] = dp[0][j - 2] && p.charAt(j - 1) == '*';  //s为空字符串，p的偶数位为*，步长为2
         for(int i = 1; i < m; i++) {
             for(int j = 1; j < n; j++) {
                 dp[i][j] = p.charAt(j - 1) == '*' ?
