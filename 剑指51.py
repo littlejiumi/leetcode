@@ -1,4 +1,4 @@
-class Solution:
+class Solution: #分治法
     def reversePairs(self, nums: List[int]) -> int:
         def merge_sort(l, r):
             # 终止条件
@@ -24,3 +24,18 @@ class Solution:
         
         tmp = [0] * len(nums)
         return merge_sort(0, len(nums) - 1)
+
+    
+    # 暴力解法
+    class Solution:
+
+    def reversePairs(self, nums: List[int]) -> int:
+        size = len(nums)
+        if size < 2:
+            return 0
+        res = 0
+        for i in range(0, size - 1):
+            for j in range(i + 1, size):
+                if nums[i] > nums[j]:
+                    res += 1
+        return res
