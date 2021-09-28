@@ -1,4 +1,4 @@
-class Solution {
+class Solution {//两层循环，固定一个数，双指针两个数
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
