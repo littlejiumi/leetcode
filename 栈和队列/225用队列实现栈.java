@@ -1,42 +1,38 @@
 class MyStack {
-public:
-    queue<int> que1;
-    queue<int> que2; // 辅助队列，用来备份
+
+    Queue<Integer> queue1; // 和栈中保持一样元素的队列
+    Queue<Integer> queue2; // 辅助队列
+
     /** Initialize your data structure here. */
-    MyStack() {
-
+    public MyStack() {
+        queue1 = new LinkedList<>();
+        queue2 = new LinkedList<>();
     }
-
+    
     /** Push element x onto stack. */
-    void push(int x) {
-        que1.push(x);
+    public void push(int x) {
+        queue2.offer(x); // 先放在辅助队列中
+        while (!queue1.isEmpty()){
+            queue2.offer(queue1.poll());
+        }
+        Queue<Integer> queueTemp;
+        queueTemp = queue1;
+        queue1 = queue2;
+        queue2 = queueTemp; // 最后交换queue1和queue2，将元素都放到queue1中
     }
-
+    
     /** Removes the element on top of the stack and returns that element. */
-    int pop() {
-        int size = que1.size();
-        size--;
-        while (size--) { // 将que1 导入que2，但要留下最后一个元素
-            que2.push(que1.front());
-            que1.pop();
-        }
-
-        int result = que1.front(); // 留下的最后一个元素就是要返回的值
-        que1.pop();
-        que1 = que2;            // 再将que2赋值给que1
-        while (!que2.empty()) { // 清空que2
-            que2.pop();
-        }
-        return result;
+    public int pop() {
+        return queue1.poll(); // 因为queue1中的元素和栈中的保持一致，所以这个和下面两个的操作只看queue1即可
     }
-
+    
     /** Get the top element. */
-    int top() {
-        return que1.back();
+    public int top() {
+        return queue1.peek();
     }
-
+    
     /** Returns whether the stack is empty. */
-    bool empty() {
-        return que1.empty();
+    public boolean empty() {
+        return queue1.isEmpty();
     }
-};
+}
