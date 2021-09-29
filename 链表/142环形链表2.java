@@ -30,3 +30,26 @@ public class Solution {
         return null;
     }
 }
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def detectCycle(self, head: ListNode) -> ListNode:
+        s,f = head, head
+        while f and f.next:
+            f = f.next.next
+            s = s.next
+            if s == f:
+                f = head
+                while f != s:
+                    s=s.next
+                    f = f.next
+                return s 
+        return None
+
+
+
