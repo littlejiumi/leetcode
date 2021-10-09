@@ -34,7 +34,7 @@ public class BubbleSort {
                 }
             }
             //一趟下来是否发生位置交换
-            if(false)
+            if(true)
                 break;
         }
         return arr;
