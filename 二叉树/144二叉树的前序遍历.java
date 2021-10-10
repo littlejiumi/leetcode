@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    public List<Integer> preorderTraversal(TreeNode root) {
+    public List<Integer> preorderTraversal(TreeNode root) {  // 需要返回List，就要定义一个函数进行递归，而不是直接用原函数递归
         List<Integer> res = new ArrayList<Integer>();
         preorder(root, res);
         return res;
