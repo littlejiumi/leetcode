@@ -20,10 +20,10 @@ class Solution {
         if (node == null) return 0; //确定终止条件：如果为空节点的话，就返回0，表示高度为0。
         // 确定单层递归的逻辑：先求它的左子树的深度，再求的右子树的深度，
         // 最后取左右深度最大的数值 再+1 （加1是因为算上当前中间节点）就是目前节点为根节点的树的深度。
-        int leftDepth = depth(node.left);
-        int rightDepth = depth(node.right);
-        return 1 + Math.max(leftDepth, rightDepth);
-    }
+        int leftDepth = depth(node.left); // 左
+        int rightDepth = depth(node.right);  // 右
+        return 1 + Math.max(leftDepth, rightDepth); // 中
+    } 
     public int maxDepth(TreeNode root) { 
         return depth(root);
     }
