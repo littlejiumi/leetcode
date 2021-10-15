@@ -6,9 +6,9 @@ class Solution:
                 res.append(path[:])
                 return
             for i in range(len(nums)):
-                if nums[i] in used: continue
+                if i in used: continue
                 path.append(nums[i])
-                used.append(nums[i])
+                used.append(i)
                 backtrack(nums, used)
                 used.pop()
                 path.pop()
