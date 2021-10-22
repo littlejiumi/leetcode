@@ -12,3 +12,41 @@ class Solution {
 class Solution:
     def reverseWords(self, s: str) -> str:
         return " ".join(reversed(s.split()))
+  
+class Solution:
+    def trim_space(self, s):
+        n = len(s)
+        l = 0
+        r = n-1
+        while l <= r and s[l]==' ': l += 1
+        while l <= r and s[r]==' ': r -= 1
+        tmp = []
+        while l <= r:
+            if s[l]!=' ':
+                tmp.append(s[l])
+            elif tmp[-1]!=' ':
+                tmp.append(s[l])
+            l += 1
+        return tmp
+
+    def reverse_string(self, nums, left, right):
+        while left < right:
+            nums[left], nums[right]=nums[right], nums[left]
+            left += 1
+            right -= 1
+    def reverse_each_word(self, nums):
+        l = 0
+        r = 0
+        n = len(nums)
+        while l < n:
+            while r<n and nums[r] != ' ':
+                r+=1
+            self.reverse_string(nums, l, r-1)
+            l = r+1
+            r += 1
+
+    def reverseWords(self, s: str) -> str:
+        tmp = self.trim_space(s)
+        self.reverse_string(tmp, 0, len(tmp)-1)
+        self.reverse_each_word(tmp)
+        return "".join(tmp)
