@@ -1,9 +1,14 @@
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        m = nums[0]
-        tmp = 0
-        for i in nums:
-            tmp += i
-            m = max(tmp, m)
-            if tmp<0: tmp = 0  # 若当前和小于0，则舍去，从0开始加
-        return m
+        res = Sum = nums[0]
+        # Sum为i-1结尾的最大连续子数组。i时Sum+=nums[i]，
+        # 但如果Sum<0就当作0，最大连续子数组就是nums[i]本身
+        for i in range(1, len(nums)):
+            if Sum < 0: Sum = 0
+            Sum += nums[i]
+            res = max(res, Sum)
+        return res
+
+
+
+
