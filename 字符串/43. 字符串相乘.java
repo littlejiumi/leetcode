@@ -41,8 +41,10 @@ class Solution {
         // 去掉前导0
         while(i < mul.length-1 && mul[i] == 0) 
             i++;
-        for(; i < mul.length; ++i)
+        while(i<mul.length){
             sb.append(mul[i]);
+            i++;
+        }            
         return sb.toString();
     }
 }
