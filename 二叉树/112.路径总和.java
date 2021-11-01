@@ -15,20 +15,18 @@
  */
 class Solution {
     public boolean traversal(TreeNode node, int count) {
+        count -= node.val;
         if(count == 0 && node.left== null && node.right == null) return true;
-        if (count != 0 && node.left== null && node.right == null) return false;
         if(node.left != null) {
-            if (traversal(node.left, count - node.left.val)) return true; 
-            //return traversal(node.left, count - node.left.val);
+            if (traversal(node.left, count)) return true; 
         }
         if(node.right != null) {
-            if (traversal(node.right, count - node.right.val)) return true;
-            // return traversal(node.right, count - node.right.val);
+            if (traversal(node.right, count)) return true;
         }
         return false;
     }
     public boolean hasPathSum(TreeNode root, int targetSum) {
         if(root == null) return false;
-        return traversal(root, targetSum-root.val);
+        return traversal(root, targetSum);
     }
 }
