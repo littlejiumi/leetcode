@@ -17,25 +17,26 @@ class Solution {
     List<List<Integer>> res = new ArrayList<>();
     List<Integer> path = new ArrayList<>();
     public void dfs(TreeNode root, int Sum){
-        Sum -= root.val;
-        path.add(root.val);
         if(root.left == null && root.right == null && Sum == 0){
             res.add(new ArrayList<>(path));
             return;
         }
         if( root.left != null){
-            dfs(root.left, Sum);
+            path.add(root.left.val);
+            dfs(root.left, Sum - root.left.val);
             path.remove(path.size()-1);
         }
         if( root.right != null){
-            dfs(root.right, Sum);
+            path.add(root.right.val);
+            dfs(root.right, Sum-root.right.val);
             path.remove(path.size()-1);
         }
         return;
     }
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        if(root == null) return res;
-        dfs(root, targetSum);
+        if (root == null) return res;
+        path.add(root.val);
+        dfs(root, targetSum-root.val);
         return res;
     }
 }
