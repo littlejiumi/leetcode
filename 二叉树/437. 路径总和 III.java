@@ -19,13 +19,17 @@ class Solution {
         int res = 0;
         targetSum -= root.val;
         if(targetSum == 0) res = 1;
-        else res = 0;
-        int leftres = dfs(root.left, targetSum);
-        int rightres = dfs(root.right, targetSum );
-        return res + leftres + rightres;
+        res += dfs(root.left, targetSum);
+        res += dfs(root.right, targetSum);
+        return res;
     }
+
     public int pathSum(TreeNode root, int targetSum) {
         if (root == null) return 0;
-        return dfs(root, targetSum) + pathSum(root.left, targetSum) + pathSum(root.right, targetSum);
+        int res = dfs(root, targetSum);
+        res += pathSum(root.left, targetSum);
+        res += pathSum(root.right, targetSum);
+        return res;
+
     }
 }
