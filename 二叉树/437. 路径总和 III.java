@@ -14,16 +14,18 @@
  * }
  */
 class Solution {
-    public int dfs(TreeNode node, int count){
-        if(node == null) return 0;
-        count -= node.val;
-        int noderes = (count == 0? 1 : 0);
-        int left = dfs(node.left, count);
-        int right = dfs(node.right, count);
-        return noderes + left + right;
+    public int dfs(TreeNode root, int targetSum){
+        if(root == null) return 0;
+        int res = 0;
+        targetSum -= root.val;
+        if(targetSum == 0) res = 1;
+        else res = 0;
+        int leftres = dfs(root.left, targetSum);
+        int rightres = dfs(root.right, targetSum );
+        return res + leftres + rightres;
     }
     public int pathSum(TreeNode root, int targetSum) {
-        if(root == null) return 0;
+        if (root == null) return 0;
         return dfs(root, targetSum) + pathSum(root.left, targetSum) + pathSum(root.right, targetSum);
     }
 }
