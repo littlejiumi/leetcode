@@ -7,7 +7,7 @@ class Solution:
                 return
             for i in range(len(nums)):
                 if i > 0 and nums[i-1]==nums[i] and (i-1 not in used):
-                    continue
+                    continue  # 只比全排列多了这一行
                 if i in used: continue
                 path.append(nums[i])
                 used.append(i)   # 注意，不能放nums[i]，因为有重复的元素。存放index是唯一的。
