@@ -3,6 +3,7 @@ class Solution:
         res = []
         path = [] # 存放分割后的字符
         # 判断数组中的数字是否合法
+        if len(s) > 12: return res # 字符串长度最大为12
         def isValid(p):
             if p == '0': return True # 解决"0000"
             if p[0] == '0': return False
@@ -10,13 +11,11 @@ class Solution:
             return False
 
         def backtrack(s, startIndex):
-            if len(s) > 12: return  # 字符串长度最大为12
             if len(path) == 4 and startIndex == len(s): # 确保切割完，且切割后的长度为4
                 res.append(".".join(path[:])) # 字符拼接
                 return
 
             for i in range(startIndex, len(s)):
-                if len(s) - startIndex > 3*(4 - len(path)): continue # 剪枝，剩下的字符串大于允许的最大长度则跳过
                 p = s[startIndex:i+1] # 分割字符
                 if isValid(p): # 判断字符是否有效
                     path.append(p)
