@@ -35,4 +35,4 @@ class Solution:
         if L and R: return root  # 如果root两边分别有p和q，那就是root了，返回
         if L and not R: return L 
         if R and not L: return R 
-        return None
+
