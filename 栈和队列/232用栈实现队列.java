@@ -1,47 +1,38 @@
 import java.util.Stack;
 
-class MyQueue {
-
+class CQueue {
     Stack<Integer> stack1;
     Stack<Integer> stack2;
 
-    /** Initialize your data structure here. */
-    public MyQueue() {
-        stack1 = new Stack<>(); // 负责进栈
-        stack2 = new Stack<>(); // 负责出栈
+    public CQueue() {
+        stack1 = new Stack<Integer>();
+        stack2 = new Stack<Integer>();
     }
     
-    /** Push element x to the back of queue. */
-    public void push(int x) {
-        stack1.push(x);
+    public void appendTail(int value) {
+        stack1.push(value);
     }
     
-    /** Removes the element from in front of queue and returns that element. */
-    public int pop() {    
-        dumpStack1();
+    public int deleteHead() {
+        if(!stack2.isEmpty()){
+            return stack2.pop();
+        }
+        if(stack1.isEmpty()){
+            return -1;
+        }
+        while(!stack1.isEmpty()){
+            stack2.push(stack1.pop());
+        }
         return stack2.pop();
     }
-    
-    /** Get the front element. */
-    public int peek() {
-        dumpStack1();
-        return stack2.peek();
-    }
-    
-    /** Returns whether the queue is empty. */
-    public boolean empty() {
-        return stack1.isEmpty() && stack2.isEmpty();
-    }
-
-    // 如果stack2为空，那么将stack1中的元素全部放到stack2中
-    private void dumpStack1(){
-        if (stack2.isEmpty()){
-            while (!stack1.isEmpty()){
-                stack2.push(stack1.pop());
-            }
-        }
-    }
 }
+
+/**
+ * Your CQueue object will be instantiated and called as such:
+ * CQueue obj = new CQueue();
+ * obj.appendTail(value);
+ * int param_2 = obj.deleteHead();
+ */
 
 /**
  * Your MyQueue object will be instantiated and called as such:
