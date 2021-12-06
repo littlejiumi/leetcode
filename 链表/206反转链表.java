@@ -12,8 +12,8 @@ class Solution {
     public ListNode reverseList(ListNode head) {
         if(head == null) return null;
         ListNode cur = head;
-        ListNode pre = null;
-        while(cur != null){
+        ListNode pre = null;   // 初始化pre==null
+        while(cur != null){    // cur == null时退出，反转后的head为pre
             ListNode tmp = cur.next;
             cur.next = pre;
             pre = cur;
@@ -22,3 +22,20 @@ class Solution {
         return pre;
     }
 }
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        if not head: return head
+        pre = None
+        cur = head
+        while cur:
+            temp = cur.next
+            cur.next = pre
+            pre = cur
+            cur = temp
+        return pre
