@@ -2,7 +2,7 @@ class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
         row, col, time = len(grid), len(grid[0]), 0
         directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-        queue = []
+        queue = []   # or queue=collections.deque()
         # add the rotten orange to the queue
         for i in range(row):
             for j in range(col):
@@ -10,7 +10,7 @@ class Solution:
                     queue.append((i, j, time))
         # bfs
         while queue:
-            i, j, time = queue.pop(0)
+            i, j, time = queue.pop(0).  # queue.popleft()
             for di, dj in directions:
                 if 0 <= i + di < row and 0 <= j + dj < col and grid[i + di][j + dj] == 1:
                     grid[i + di][j + dj] = 2
