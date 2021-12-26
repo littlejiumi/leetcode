@@ -1,3 +1,11 @@
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+"""
 class Solution:
     def treeToDoublyList(self, root: 'Node') -> 'Node':
         def dfs(cur):
@@ -16,6 +24,26 @@ class Solution:
         self.head.left, self.pre.right = self.pre, self.head
         return self.head
 
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val,Node _left,Node _right) {
+        val = _val;
+        left = _left;
+        right = _right;
+    }
+};
+*/
 class Solution {
     Node pre, head;
     public Node treeToDoublyList(Node root) {
