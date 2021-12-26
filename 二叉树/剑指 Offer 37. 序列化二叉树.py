@@ -10,7 +10,7 @@ class Codec:
                 res.append(str(node.val))
                 queue.append(node.left)
                 queue.append(node.right)
-            else: res.append("null")
+            else: res.append("null") # 注意非空的也要append进去
         return '[' + ','.join(res) + ']'
 
     def deserialize(self, data):
