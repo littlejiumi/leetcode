@@ -1,16 +1,19 @@
 class Solution:
     def permutation(self, s: str) -> List[str]:
-        c, res = list(s), []
-        def dfs(x):
-            if x == len(c) - 1:
-                res.append(''.join(c))   # 添加排列方案
-                return
-            dic = set()
-            for i in range(x, len(c)):
-                if c[i] in dic: continue # 重复，因此剪枝
-                dic.add(c[i])
-                c[i], c[x] = c[x], c[i]  # 交换，将 c[i] 固定在第 x 位
-                dfs(x + 1)               # 开启固定第 x + 1 位字符
-                c[i], c[x] = c[x], c[i]  # 恢复交换
-        dfs(0)
+        used = [0] *  len(s)
+        res, path = [], []
+        def dfs(s, used):
+            if len(path) == len(s):
+                res.append("".join(path))
+            for i in range(len(s)):
+                if i > 0 and s[i-1] == s[i] and used[i-1]==0: continue
+                if used[i] == 0:
+                    used[i] = 1
+                    path.append(s[i])
+                    dfs(s, used)
+                    path.pop()
+                    used[i] = 0
+        li = sorted(list(s))
+        s = "".join(li)
+        dfs(s, used)
         return res
