@@ -38,18 +38,15 @@ public class Solution {
 #         self.next = None
 
 class Solution:
-    def detectCycle(self, head: ListNode) -> ListNode:
-        s,f = head, head
-        while f and f.next:
-            f = f.next.next
-            s = s.next
-            if s == f:
-                f = head
-                while f != s:
-                    s=s.next
-                    f = f.next
-                return s 
-        return None
+    def hasCycle(self, head: ListNode) -> bool:
+        if not head or not head.next:
+            return False
+        slow, fast = head, head
+        while True:
+            if not fast or not fast.next: return False            
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast: return True
 
 
 
