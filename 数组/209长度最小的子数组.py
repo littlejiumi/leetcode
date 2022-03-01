@@ -36,3 +36,18 @@ class Solution { //滑动窗口
         return ans == Integer.MAX_VALUE? 0: ans;
     }
 }
+
+class Solution:
+    def minSubArrayLen(self, s: int, nums: List[int]) -> int:
+        # 定义一个无限大的数
+        res = float("inf")
+        Sum = 0 # 滑动窗口数值之和
+        l = 0   # 滑动窗口起始位置 
+        for r in range(len(nums)):  # r为滑动窗口终止位置
+            Sum += nums[r]
+            # 注意这里使用while，每次更新 l（起始位置），并不断比较子序列是否符合条件
+            while Sum >= s:
+                res = min(res, r-l+1) # 取子序列的长度
+                Sum -= nums[l]
+                l += 1  # 不断变更l（子序列的起始位置）
+        return 0 if res==float("inf") else res
