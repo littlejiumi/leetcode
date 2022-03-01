@@ -16,3 +16,28 @@ class Solution {
         return ans;
     }
 }
+
+class Solution:
+    def generateMatrix(self, n: int) -> List[List[int]]:
+        res = [[0]*n for _ in range(n)]
+        l, r, t, b = 0, n-1, 0, n-1
+        total = n*n
+        temp = 1
+        while temp <= total:
+            for i in range(l, r+1):  # 注意要左闭右闭，这样才能下一步t=t+1
+                res[t][i] = temp 
+                temp += 1
+            t+=1
+            for i in range(t, b+1):
+                res[i][r] = temp
+                temp+=1
+            r -=1
+            for i in range(r, l-1, -1):
+                res[b][i] = temp
+                temp+=1
+            b -= 1
+            for i in range(b,t-1,-1):
+                res[i][l] = temp
+                temp+=1
+            l += 1
+        return res
