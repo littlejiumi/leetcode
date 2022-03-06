@@ -3,6 +3,7 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+# 归并排序，先分割到两个节点，再一点点合并
 class Solution:
     def sortList(self, head: ListNode) -> ListNode:
         if not head or not head.next: return head # termination.
