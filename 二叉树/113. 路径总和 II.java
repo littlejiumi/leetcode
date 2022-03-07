@@ -40,3 +40,31 @@ class Solution {
         return res;
     }
 }
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+        res, path = [], []
+        def recur(root, target):
+            if target==0 and not root.left and not root.right:
+                res.append(path[:])
+                return
+            if root.left!=None:
+                path.append(root.left.val)
+                recur(root.left, target-root.left.val)
+                path.pop()
+            if root.right!=None:
+                path.append(root.right.val)
+                recur(root.right, target-root.right.val)
+                path.pop()
+            return
+        if not root: return None
+        path.append(root.val)
+        recur(root, targetSum-root.val)
+        return res
+
