@@ -24,3 +24,21 @@ class Solution {
         return pse.next;
     }
 }
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def swapPairs(self, head: ListNode) -> ListNode:
+        pse = ListNode(0, head)
+        cur = pse
+        while cur.next and cur.next.next:
+            t1 = cur.next
+            t2 = cur.next.next
+            cur.next = t2
+            t1.next = t2.next
+            t2.next = t1
+            cur = t1
+        return pse.next
