@@ -50,3 +50,15 @@ class Solution {
     }
 }
 
+# python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        li = [0] * 26
+        for i in s:
+            li[ord(i)-ord('a')] += 1.  # 注意python的str->char函数为ord()
+        for i in t:
+            li[ord(i)-ord('a')] -= 1
+        for i in li:
+            if not i == 0:return False
+        return True
+
