@@ -14,6 +14,13 @@ class Solution:
         return " ".join(reversed(s.split()))
   
 class Solution:
+    def reverseWords(self, s: str) -> str:
+        s = s.strip()
+        l = s.split(" ")
+        res = " ".join(reversed(l))
+        return s 
+    
+class Solution:
     def trim_space(self, s):
         n = len(s)
         l = 0
