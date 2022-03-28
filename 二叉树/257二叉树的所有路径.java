@@ -44,3 +44,32 @@ class Solution {
         return result;
     }
 }
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
+        def dfs(root, path, res):
+            path.append(root.val)
+            if not root.left and not root.right: 
+                temp = ""
+                for i in range(len(path)-1):
+                    temp+=str(path[i])
+                    temp+="->"
+                temp+=str(path[-1])
+                res.append(temp)
+                return 
+            if root.left:
+                dfs(root.left, path, res)
+                path.pop()
+            if root.right:
+                dfs(root.right, path, res)
+                path.pop()
+        res, path = [], []
+        if not root: return res
+        dfs(root, path, res)
+        return res
