@@ -47,10 +47,10 @@ class Solution:
             nums[pivot], nums[R] = nums[R], nums[pivot]
             i = L-1
             for j in range(L, R):
-                if nums[j]<nums[R]:
+                if nums[j]<nums[R]: # 遇到比那个值小的，就换到左边，方式是设小于那个值的最右侧下标为i，交换i,j值
                     i += 1
                     nums[i],nums[j]= nums[j], nums[i]
-            i+=1
+            i+=1 # 中间值下标为i
             nums[R], nums[i] = nums[i],nums[R]
             return i
 
