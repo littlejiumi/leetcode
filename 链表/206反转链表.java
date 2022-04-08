@@ -23,7 +23,7 @@ class Solution {
     }
 }
 
-# Definition for singly-linked list.
+# Definition for singly-linked list. # 非递归
 # class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
@@ -39,3 +39,18 @@ class Solution:
             pre = cur
             cur = temp
         return pre
+
+
+# Definition for singly-linked list.  递归法
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        def reverse(pre, cur):
+            if not cur: return pre
+            temp = cur.next
+            cur.next = pre
+            return reverse(cur, temp)
+        return reverse(None, head)
