@@ -65,7 +65,7 @@ class Solution:
         if not l2: return l1
         if l1.val <= l2.val:  # 递归调用
             l1.next = self.mergeTwoLists(l1.next,l2)
-            return l1
+            return l1 # 返回值：每一层调用都返回排序好的链表头
         else:
             l2.next = self.mergeTwoLists(l1,l2.next)
             return l2
