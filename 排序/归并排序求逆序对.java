@@ -51,3 +51,39 @@ public class InversionPair {
         inversionPair(arr);
     }
 }
+
+
+class Solution:
+    def reversePairs(self, nums: List[int]) -> int:
+        def merge_sort(l, r):
+            # 终止条件
+            if l >= r: return 0
+            # 递归划分
+            m = (l + r) // 2
+            res = merge_sort(l, m) + merge_sort(m + 1, r) # res是逆序对数量
+            # 合并阶段
+            i, j = l, m + 1
+            tmp[l:r + 1] = nums[l:r + 1]
+            k = l # 指针
+            while i <= m and j <= r:
+                if nums[i] <= nums[j]:
+                    tmp[k] = nums[i] 
+                    i += 1
+                else:
+                    res += m - i + 1 # 左边数组右侧的数都会比那个数大，因为有序
+                    tmp[k] = nums[j]
+                    j += 1
+                k += 1
+            while i <= m:
+                tmp[k] = nums[i]
+                i += 1
+                k += 1
+            while j <= r:
+                tmp[k] = nums[j]
+                j += 1
+                k += 1
+            nums[l : r + 1] = tmp[l:r+1]
+            return res
+           
+        tmp = [0] * len(nums) # 归并排序空间复杂度O(n),最好，最坏，平均时间复杂度都是O(nlogn)
+        return merge_sort(0, len(nums) - 1)
