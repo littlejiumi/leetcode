@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-20T09:27:59.110Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="-_b5by5dzgtV_GEY_ytO" version="21.3.2" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2023-05-20T09:28:51.957Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="okSlGDseURVoLyvPTar1" version="21.3.2" type="github" pages="6">
   <diagram id="a-2ffWJP_a0YYDjaXnCs" name="Page-1">
     <mxGraphModel dx="1221" dy="629" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="1" shadow="0">
       <root>
@@ -4232,10 +4232,10 @@
         <mxCell id="htMAUMj2gkT2OH_L05aP-145" value="$$A_M^{(t)}$$" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
           <mxGeometry x="532.75" y="488" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="htMAUMj2gkT2OH_L05aP-146" value="&lt;font style=&quot;font-size: 15px&quot;&gt;$$[\theta_1^{(t)}]_0$$&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
+        <mxCell id="htMAUMj2gkT2OH_L05aP-146" value="&lt;font style=&quot;font-size: 15px&quot;&gt;$$\theta_1^{(t)}$$&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
           <mxGeometry x="644.3199999999999" y="318.5" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="htMAUMj2gkT2OH_L05aP-147" value="&lt;font style=&quot;font-size: 15px&quot;&gt;$$[\theta_M^{(t)}]_0$$&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
+        <mxCell id="htMAUMj2gkT2OH_L05aP-147" value="&lt;font style=&quot;font-size: 15px&quot;&gt;$$\theta_M^{(t)}$$&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
           <mxGeometry x="644.3199999999999" y="489.77" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="htMAUMj2gkT2OH_L05aP-148" value="" style="group;whiteSpace=wrap;html=1;" parent="1" vertex="1" connectable="0">
